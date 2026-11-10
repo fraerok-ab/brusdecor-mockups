@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brus Decor — Макет 5 «Конфигуратор»</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--soft:#f4f5f7;--ink:#1d2230;--muted:#6b7280;--acc:#c2622d;--acc2:#e9d4c4;--line:#e5e7eb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Montserrat,sans-serif;font-weight:800;line-height:1.1}
+header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:32px;height:70px}
+.logo{font-family:Montserrat;font-weight:800;font-size:20px}
+.logo b{color:var(--acc)}
+.menu{display:flex;gap:24px;font-weight:500;font-size:15px;color:var(--muted);margin-right:auto}
+.menu a:hover{color:var(--ink)}
+.ph-n{font-weight:600;text-align:right;font-size:15px;line-height:1.2}
+.ph-n small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 26px;border-radius:12px;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:.2s;font-family:Inter}
+.btn.a{background:var(--acc);color:#fff}.btn.a:hover{background:#a8521f}
+.btn.l{background:var(--soft);color:var(--ink)}.btn.l:hover{background:var(--line)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;padding:56px 0 40px;align-items:center}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.badges span{background:var(--soft);padding:6px 12px;border-radius:8px;font-size:13px;font-weight:600}
+.badges span:first-child{background:var(--acc2);color:#7a3410}
+h1{font-size:clamp(36px,4.6vw,58px);margin-bottom:20px}
+h1 span{color:var(--acc)}
+.hero p{color:var(--muted);font-size:18px;margin-bottom:28px;max-width:520px}
+.checks{list-style:none;display:grid;gap:10px;margin-bottom:32px}
+.checks li::before{content:"✓";display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--acc);color:#fff;font-size:12px;margin-right:12px}
+.hero .im{position:relative;height:540px;border-radius:24px;overflow:hidden}
+.float{position:absolute;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 12px 30px rgba(0,0,0,.15);font-size:14px}
+.float b{font-family:Montserrat;font-size:24px;display:block;line-height:1.1}
+.f1{left:20px;bottom:20px}.f2{right:20px;top:20px}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:24px 0 72px}
+.trust div{background:var(--soft);border-radius:16px;padding:22px}
+.trust b{font-family:Montserrat;font-size:28px;color:var(--acc);display:block}
+.trust span{font-size:14px;color:var(--muted)}
+section{padding:80px 0}
+.soft{background:var(--soft)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px}
+h2{font-size:clamp(28px,3.4vw,42px)}
+.sh p{color:var(--muted);max-width:420px}
+/* quiz */
+.quiz{display:grid;grid-template-columns:1fr 340px;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(29,34,48,.08)}
+.qmain{padding:40px}
+.prog{height:6px;background:var(--soft);border-radius:3px;margin-bottom:26px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--acc);width:25%;transition:.4s}
+.step-n{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:6px}
+.q h3{font-size:24px;margin-bottom:22px}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.opt{border:2px solid var(--line);border-radius:16px;padding:10px;cursor:pointer;transition:.2s;background:#fff;text-align:left;font:inherit}
+.opt:hover{border-color:var(--acc2)}
+.opt.on{border-color:var(--acc);background:#fdf6f1}
+.opt .p{height:120px;border-radius:10px;overflow:hidden;margin-bottom:10px}
+.opt b{font-weight:600;font-size:15px;padding:0 4px}
+.opt.txt{padding:18px;font-weight:600}
+.q{display:none}.q.on{display:block}
+.qnav{display:flex;justify-content:space-between;margin-top:28px}
+.qside{background:var(--ink);color:#fff;padding:40px 32px;display:flex;flex-direction:column;gap:18px}
+.qside .gift{background:rgba(255,255,255,.08);border-radius:14px;padding:16px;font-size:14px}
+.qside .gift b{color:#f3b48c}
+.qside ul{list-style:none;font-size:14px;color:#c7cbd6;display:grid;gap:8px}
+.qside .sum{font-size:14px;color:#c7cbd6;border-top:1px solid rgba(255,255,255,.15);padding-top:16px}
+.qside .sum b{color:#fff}
+.form{display:grid;gap:12px;max-width:460px}
+.form input{padding:16px;border:1px solid var(--line);border-radius:12px;font:16px Inter}
+/* catalog */
+.tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.tabs button{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font:600 14px Inter;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pr{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);transition:.2s}
+.pr:hover{box-shadow:0 14px 30px rgba(0,0,0,.08);transform:translateY(-3px)}
+.pr .p{height:220px}
+.pr .i{padding:16px 18px 20px}
+.pr .i small{color:var(--acc);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.pr h3{font-size:17px;margin:4px 0 12px}
+.pr .row{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted)}
+.pr .row a{color:var(--acc);font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;counter-reset:s}
+.st{background:#fff;border-radius:18px;padding:24px;position:relative}
+.st::before{counter-increment:s;content:counter(s);font-family:Montserrat;font-weight:800;font-size:40px;color:var(--acc2);display:block;line-height:1;margin-bottom:12px}
+.st h3{font-size:16px;margin-bottom:6px}.st p{font-size:14px;color:var(--muted)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.duo .card{border-radius:24px;overflow:hidden;position:relative;min-height:360px;color:#fff;padding:36px;display:flex;flex-direction:column;justify-content:end}
+.duo .card img{position:absolute;inset:0;z-index:-1;filter:brightness(.5)}
+.duo .card{isolation:isolate}
+.duo h3{font-size:28px;margin-bottom:10px}
+.duo p{color:#e5e7eb;margin-bottom:20px;max-width:420px}
+footer{background:var(--ink);color:#c7cbd6;padding:56px 0;font-size:14px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+.foot b{color:#fff;display:block;margin-bottom:8px}
+@media(max-width:960px){.menu,.ph-n{display:none}.hero,.quiz,.duo{grid-template-columns:1fr}.hero .im{height:360px}.trust,.prods,.foot{grid-template-columns:1fr 1fr}.opts{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.sh{flex-direction:column;align-items:start}.qmain{padding:24px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#">BRUS<b>DECOR</b></a>
+  <nav class="menu"><a href="#quiz">Подбор</a><a href="#cat">Каталог</a><a href="#how">Как работаем</a><a href="#contacts">Контакты</a></nav>
+  <div class="ph-n">+7 (499) 346 66 29<small>Пн–Вс 11:00–20:00</small></div>
+  <a class="btn a" href="#quiz">Рассчитать</a>
+</div></header>
+
+<div class="wrap hero">
+  <div>
+    <div class="badges"><span>Снизим смету на 5–15%</span><span>Гарантия 12 мес</span><span>С 2016 года</span></div>
+    <h1>Рейки и перегородки <span>под ваш размер</span> — с замером и монтажом</h1>
+    <p>Ответьте на 3 вопроса — менеджер подготовит расчёт стоимости вашего проекта.</p>
+    <ul class="checks"><li>Изготовление до 30 рабочих дней</li><li>Собственное производство 11 000 м²</li><li>Монтаж своими бригадами в Москве и области</li></ul>
+    <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn a" href="#quiz">Подобрать и рассчитать →</a><a class="btn l" href="#contacts">Вызвать замерщика</a></div>
+  </div>
+  <div class="im"><img src="img/partition-tv-white.jpg" alt="Перегородка в зоне TV">
+    <div class="float f1"><b>5000+</b>реализованных проектов</div>
+    <div class="float f2"><b>50+</b>городов России</div>
+  </div>
+</div>
+
+<div class="wrap trust">
+  <div><b>0,1 мм</b><span>точность раскроя на станках</span></div>
+  <div><b>4 этапа</b><span>контроля качества</span></div>
+  <div><b>2000+</b><span>образцов в шоу-руме</span></div>
+  <div><b>от 2 дней</b><span>доставка в регионы</span></div>
+</div>
+
+<section id="quiz" class="soft"><div class="wrap">
+  <div class="sh"><h2>Подбор за 1 минуту</h2><p>Расчёт бесплатный и ни к чему не обязывает. Если у вас есть КП конкурента — приложите его на последнем шаге.</p></div>
+  <div class="quiz">
+    <div class="qmain">
+      <div class="prog"><i id="bar"></i></div>
+      <div class="q on" data-k="Изделие">
+        <div class="step-n">Шаг 1 из 4</div><h3>Что вы хотите заказать?</h3>
+        <div class="opts">
+          <button class="opt"><div class="p"><img src="img/partition-slats.jpg" alt=""></div><b>Перегородку</b></button>
+          <button class="opt"><div class="p"><img src="img/slats-tv.jpg" alt=""></div><b>Рейки на стену</b></button>
+          <button class="opt"><div class="p"><img src="img/panels-wood3d.jpg" alt=""></div><b>Стеновые панели</b></button>
+          <button class="opt"><div class="p"><img src="img/furniture-wardrobe.jpg" alt=""></div><b>Мебель</b></button>
+          <button class="opt"><div class="p"><img src="img/moss-panel.jpg" alt=""></div><b>Панно из мха</b></button>
+          <button class="opt"><div class="p"><img src="img/radiator-screen.jpg" alt=""></div><b>Экран / подоконник</b></button>
+        </div>
+      </div>
+      <div class="q" data-k="Помещение">
+        <div class="step-n">Шаг 2 из 4</div><h3>Для какого помещения?</h3>
+        <div class="opts"><button class="opt txt">Гостиная</button><button class="opt txt">Спальня</button><button class="opt txt">Кухня</button><button class="opt txt">Прихожая</button><button class="opt txt">Офис / коммерция</button><button class="opt txt">Пока не знаю</button></div>
+      </div>
+      <div class="q" data-k="Подсветка">
+        <div class="step-n">Шаг 3 из 4</div><h3>Нужна ли подсветка?</h3>
+        <div class="opts"><button class="opt"><div class="p"><img src="img/partition-light.jpg" alt=""></div><b>Да, LED-подсветка</b></button><button class="opt"><div class="p"><img src="img/partition-living.jpg" alt=""></div><b>Без подсветки</b></button><button class="opt txt">Посоветуйте</button></div>
+      </div>
+      <div class="q" data-k="Контакт">
+        <div class="step-n">Шаг 4 из 4</div><h3>Куда отправить расчёт?</h3>
+        <form class="form" onsubmit="event.preventDefault();this.innerHTML='<h3>Это макет — форма ничего не отправляет</h3>'">
+          <input placeholder="Ваше имя"><input placeholder="Телефон или Telegram"><button class="btn a">Получить расчёт</button>
+        </form>
+      </div>
+      <div class="qnav"><button class="btn l" id="back">← Назад</button><button class="btn a" id="next">Далее →</button></div>
+    </div>
+    <aside class="qside">
+      <h3>Ваш выбор</h3>
+      <div class="sum" id="sum">Выберите вариант слева</div>
+      <div class="gift">🎁 <b>Бонус:</b> 3D-визуализация от дизайнера-проектировщика при заказе</div>
+      <ul><li>✓ Перезвоним в рабочее время</li><li>✓ Без навязчивых звонков</li><li>✓ Замер в Москве и по России</li></ul>
+    </aside>
+  </div>
+</div></section>
+
+<section id="cat"><div class="wrap">
+  <div class="sh"><h2>Каталог</h2><p>Каждое изделие делаем по индивидуальным размерам.</p></div>
+  <div class="tabs"><button class="on">Все</button><button>Перегородки</button><button>Рейки</button><button>Стеновые панели</button><button>Мебель</button></div>
+  <div class="prods">
+    <div class="pr"><div class="p"><img src="img/partition-light.jpg" alt=""></div><div class="i"><small>Перегородки</small><h3>Перегородки с подсветкой</h3><div class="row"><span>Цена по расчёту</span><a href="#quiz">Рассчитать</a></div></div></div>
+    <div class="pr"><div class="p"><img src="img/partition-living.jpg" alt=""></div><div class="i"><small>Перегородки</small><h3>Реечные перегородки</h3><div class="row"><span>Цена по расчёту</span><a href="#quiz">Рассчитать</a></div></div></div>
+    <div class="pr"><div class="p"><img src="img/slats-bedroom.jpg" alt=""></div><div class="i"><small>Рейки</small><h3>Реечный декор в спальне</h3><div class="row"><span>Цена по расчёту</span><a href="#quiz">Рассчитать</a></div></div></div>
+    <div class="pr"><div class="p"><img src="img/slats-kitchen.jpg" alt=""></div><div class="i"><small>Рейки</small><h3>Потолочно-стеновые рейки</h3><div class="row"><span>Цена по расчёту</span><a href="#quiz">Рассчитать</a></div></div></div>
+    <div class="pr"><div class="p"><img src="img/panels-rock.jpg" alt=""></div><div class="i"><small>Панели</small><h3>Имитация скалы</h3><div class="row"><span>Цена по расчёту</span><a href="#quiz">Рассчитать</a></div></div></div>
+    <div class="pr"><div class="p"><img src="img/panels-wood3d.jpg" alt=""></div><div class="i"><small>Панели</small><h3>Стеновые панели из дерева 3D</h3><div class="row"><span>Цена по расчёту</span><a href="#quiz">Рассчитать</a></div></div></div>
+    <div class="pr"><div class="p"><img src="img/furniture-living.jpg" alt=""></div><div class="i"><small>Мебель</small><h3>Мебель в гостиную</h3><div class="row"><span>Цена по расчёту</span><a href="#quiz">Рассчитать</a></div></div></div>
+    <div class="pr"><div class="p"><img src="img/windowsill.jpg" alt=""></div><div class="i"><small>Отделка</small><h3>Подоконники и откосы</h3><div class="row"><span>Цена по расчёту</span><a href="#quiz">Рассчитать</a></div></div></div>
+  </div>
+</div></section>
+
+<section id="how" class="soft"><div class="wrap">
+  <div class="sh"><h2>Как мы работаем</h2><p>Один менеджер ведёт ваш проект от замера до монтажа.</p></div>
+  <div class="steps">
+    <div class="st"><h3>Заявка</h3><p>Консультация и предварительный расчёт</p></div>
+    <div class="st"><h3>Замер</h3><p>Выезд замерщика в удобное время</p></div>
+    <div class="st"><h3>3D-проект</h3><p>Визуализация и подбор материалов</p></div>
+    <div class="st"><h3>Производство</h3><p>До 30 рабочих дней, 4 этапа контроля</p></div>
+    <div class="st"><h3>Монтаж</h3><p>Собственные бригады, гарантия 12 месяцев</p></div>
+  </div>
+</div></section>
+
+<section id="contacts"><div class="wrap duo">
+  <div class="card"><img src="img/hero-living.jpg" alt=""><h3>Шоу-рум на Бутырской</h3><p>Москва, ул. Бутырская, д. 5. Более 2000 образцов и реальные изделия. Пн–Вс 11:00–20:00 по записи.</p><div><a class="btn a" href="tel:+74993466629">Записаться</a></div></div>
+  <div class="card"><img src="img/factory-1.jpg" alt=""><h3>Нашли дешевле?</h3><p>Пришлите КП конкурента — скорректируем цену на 5–15% без потери качества.</p><div><a class="btn a" href="#quiz">Отправить КП</a></div></div>
+</div></section>
+
+<footer><div class="wrap foot">
+  <div><b>BRUS DECOR</b>Производство декора для дома<br>© brusdecor.shop, 2016–2025</div>
+  <div><b>Отдел продаж</b>+7 (499) 346 66 29</div>
+  <div><b>Качество и гарантия</b>+7 908 3000 800</div>
+  <div><b>E-mail</b>office@brusdecor.com</div>
+</div></footer>
+
+<script>
+const qs=[...document.querySelectorAll('.q')];let i=0;const pick={};
+const bar=document.getElementById('bar'),sum=document.getElementById('sum'),next=document.getElementById('next'),back=document.getElementById('back');
+function show(){qs.forEach((q,k)=>q.classList.toggle('on',k===i));bar.style.width=(i+1)*25+'%';back.style.visibility=i?'visible':'hidden';next.style.display=i===qs.length-1?'none':'';
+ sum.innerHTML=Object.entries(pick).map(([k,v])=>k+': <b>'+v+'</b>').join('<br>')||'Выберите вариант слева'}
+qs.forEach(q=>q.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{q.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');pick[q.dataset.k]=o.textContent.trim();if(i<qs.length-1){i++;}show()}));
+next.onclick=()=>{if(i<qs.length-1)i++;show()};back.onclick=()=>{if(i>0)i--;show()};
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');const t=b.textContent;document.querySelectorAll('.pr').forEach(p=>{const c=p.querySelector('small').textContent;p.style.display=(t==='Все'||t.startsWith(c.slice(0,5))||(t==='Стеновые панели'&&c==='Панели'))?'':'none'})});
+show();
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brus Decor — Макет 4 «Природа»</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f1ea;--moss:#4f6b3a;--moss-d:#2f4423;--wood:#b07a45;--ink:#26301f;--muted:#6c7462;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 "Nunito Sans",sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:Fraunces,serif;font-weight:600;line-height:1.08}
+header{padding:20px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;background:var(--card);border-radius:999px;padding:10px 10px 10px 28px;box-shadow:0 8px 30px rgba(38,48,31,.07)}
+.logo{font-family:Fraunces;font-size:22px;font-weight:600;display:flex;align-items:center;gap:10px}
+.logo i{width:30px;height:30px;border-radius:50%;background:conic-gradient(var(--moss) 0 50%,var(--wood) 0)}
+.menu{display:flex;gap:28px;font-weight:600;font-size:15px;color:var(--muted)}
+.menu a:hover{color:var(--moss)}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:15px;transition:.25s}
+.pill.g{background:var(--moss);color:#fff}.pill.g:hover{background:var(--moss-d)}
+.pill.o{background:transparent;border:2px solid var(--ink)}.pill.o:hover{background:var(--ink);color:#fff}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px}
+.hero .t{background:var(--moss-d);color:#eef2e6;border-radius:36px;padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.chip{display:inline-block;background:rgba(255,255,255,.12);padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:26px;width:max-content}
+h1{font-size:clamp(42px,5.4vw,72px);margin-bottom:24px}
+h1 span{color:#b9d48f;font-style:italic}
+.hero .t p{color:#c8d3bb;margin-bottom:36px;max-width:460px}
+.hero .t .pill.o{border-color:#eef2e6}
+.hero .im{display:grid;grid-template-rows:1.3fr 1fr;gap:28px}
+.hero .im div{border-radius:36px;overflow:hidden}
+.hero .im .two{display:grid;grid-template-columns:1fr 1fr;gap:28px;border-radius:0}
+.hero .im .two div{border-radius:36px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+section{padding:100px 0}
+.center{text-align:center;max-width:680px;margin:0 auto 56px}
+h2{font-size:clamp(34px,4vw,54px);margin-bottom:16px}
+.center p{color:var(--muted)}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.cat{background:var(--card);border-radius:28px;padding:12px 12px 22px;transition:.3s}
+.cat:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(38,48,31,.1)}
+.cat .ph{height:230px;border-radius:20px;overflow:hidden;margin-bottom:16px}
+.cat h3{font-size:20px;padding:0 10px}
+.cat p{font-size:14px;color:var(--muted);padding:4px 10px 0}
+.moss{background:var(--moss);color:#fff;border-radius:44px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.moss .tx{padding:72px 60px}
+.moss .tx p{color:#dbe6cd;margin:18px 0 30px}
+.moss ul{list-style:none;display:grid;gap:12px;margin-bottom:34px}
+.moss li::before{content:"🌿";margin-right:10px}
+.moss .pill{background:#fff;color:var(--moss-d)}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.w{background:var(--card);border-radius:28px;padding:36px}
+.w .ic{width:56px;height:56px;border-radius:18px;background:#e6ecdc;display:grid;place-items:center;font-size:26px;margin-bottom:22px}
+.w b{font-family:Fraunces;font-size:38px;color:var(--moss);display:block;line-height:1}
+.w h3{font-size:20px;margin:8px 0}
+.w p{color:var(--muted);font-size:15px}
+.w.big{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:12px}
+.w.big .ph{border-radius:20px;overflow:hidden;min-height:260px}
+.w.big .in{padding:28px 24px 28px 0}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:20px}
+.gal div{border-radius:28px;overflow:hidden}
+.gal .a{grid-column:span 2;grid-row:span 2}.gal .b{grid-row:span 2}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.m{background:var(--card);border-radius:28px;padding:12px 12px 26px;text-align:center}
+.m .ph{height:340px;border-radius:20px;overflow:hidden;margin-bottom:18px}
+.m h3{font-size:24px}.m p{color:var(--muted);font-size:14px;padding:4px 16px 0}
+.cta{background:var(--wood);border-radius:44px;padding:80px 40px;text-align:center;color:#fff}
+.cta p{margin:14px auto 34px;max-width:560px;color:#fbe9d6}
+.cta .pill.g{background:#fff;color:var(--ink)}
+.cta .pill.o{border-color:#fff}
+footer{padding:60px 0 40px;color:var(--muted);font-size:15px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+.foot b{display:block;color:var(--ink);margin-bottom:8px}
+@media(max-width:960px){.menu{display:none}.hero,.moss,.w.big{grid-template-columns:1fr}.hero .im{grid-template-rows:300px 200px}.cats{grid-template-columns:1fr 1fr}.why,.team,.foot{grid-template-columns:1fr 1fr}.w.big{grid-column:span 2}.gal{grid-template-columns:1fr 1fr}.gal .a{grid-column:span 2}.gal .b{grid-row:span 1}.moss .tx{padding:44px 30px}.hero .t{padding:44px 30px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="nav">
+  <a class="logo" href="#"><i></i>Brus Decor</a>
+  <nav class="menu"><a href="#cat">Каталог</a><a href="#moss">Панно из мха</a><a href="#works">Работы</a><a href="#team">Команда</a></nav>
+  <a class="pill g" href="tel:+74993466629">📞 +7 (499) 346 66 29</a>
+</div></div></header>
+
+<div class="wrap hero">
+  <div class="t">
+    <span class="chip">🌳 Экологичные материалы · FSC</span>
+    <h1>Тёплый дом из <span>дерева и мха</span></h1>
+    <p>Рейки, 3D-панели, перегородки, мебель и панно из мха — от производителя. Замер, доставка и монтаж в Москве и области.</p>
+    <div class="btns"><a class="pill g" style="background:#b9d48f;color:var(--moss-d)" href="#cta">Рассчитать стоимость</a><a class="pill o" href="#cta">Вызвать замерщика</a></div>
+  </div>
+  <div class="im">
+    <div><img src="img/hero-living.jpg" alt="Гостиная с рейками"></div>
+    <div class="two"><div><img src="img/moss-panel.jpg" alt="Панно из мха"></div><div><img src="img/slats-kitchen.jpg" alt="Рейки на кухне"></div></div>
+  </div>
+</div>
+
+<section id="cat"><div class="wrap">
+  <div class="center"><h2>Наши изделия</h2><p>Изготавливаем по индивидуальным размерам до 30 рабочих дней. Более 5000 проектов по всей России.</p></div>
+  <div class="cats">
+    <a class="cat" href="#"><div class="ph"><img src="img/partition-slats.jpg" alt=""></div><h3>Перегородки</h3><p>Реечные, с подсветкой, TV, поворотные</p></a>
+    <a class="cat" href="#"><div class="ph"><img src="img/slats-bedroom.jpg" alt=""></div><h3>Рейки</h3><p>Стены, потолок, спальня, прихожая</p></a>
+    <a class="cat" href="#"><div class="ph"><img src="img/panels-wood3d.jpg" alt=""></div><h3>Стеновые панели</h3><p>МДФ, дерево 3D, гипс, мягкие</p></a>
+    <a class="cat" href="#"><div class="ph"><img src="img/furniture-wardrobe.jpg" alt=""></div><h3>Мебель</h3><p>Шкафы, полки, стеллажи</p></a>
+    <a class="cat" href="#"><div class="ph"><img src="img/moss-panel.jpg" alt=""></div><h3>Панно из мха</h3><p>Живая зелень без полива</p></a>
+  </div>
+</div></section>
+
+<div class="wrap" id="moss"><div class="moss">
+  <div class="tx">
+    <span class="chip">Безопасно для аллергиков</span>
+    <h2>Материалы, которым можно доверять</h2>
+    <p>Мы используем только сертифицированное сырьё и проверяем каждую партию.</p>
+    <ul><li>ЛДСП E1 (Германия) — нулевая эмиссия формальдегида</li><li>Массив дуба, ясеня и бука с сертификатами FSC</li><li>Экологичные краски и клеи</li><li>Egger, Kronospan, Laminam, сорт АА</li></ul>
+    <a class="pill" href="#cta">Подобрать материал</a>
+  </div>
+  <div><img src="img/panels-wood3d.jpg" alt=""></div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="center"><h2>Почему мы</h2></div>
+  <div class="why">
+    <div class="w"><div class="ic">🛠</div><b>5000+</b><h3>проектов</h3><p>Работаем без брака, каждое изделие проходит 3 этапа проверки.</p></div>
+    <div class="w"><div class="ic">🛡</div><b>12 мес</b><h3>гарантии</h3><p>Оплатим ремонт или замену при производственном дефекте.</p></div>
+    <div class="w"><div class="ic">🚚</div><b>50+</b><h3>городов</h3><p>Доставка в регионы от 2 дней, установка своими бригадами.</p></div>
+    <div class="w big"><div class="ph"><img src="img/factory-2.jpg" alt=""></div><div class="in"><b>11 000 м²</b><h3>производства полного цикла</h3><p>3D-проектирование, раскрой с точностью до 0,1 мм, 5 производственных линий и 20+ специалистов.</p></div></div>
+    <div class="w"><div class="ic">💸</div><b>−5–15%</b><h3>к смете конкурента</h3><p>Пришлите КП — сделаем выгоднее без потери качества.</p></div>
+  </div>
+</div></section>
+
+<section id="works" style="padding-top:0"><div class="wrap">
+  <div class="center"><h2>Галерея работ</h2><p>Если нет идей — подберите сочетание по нашим выполненным проектам.</p></div>
+  <div class="gal">
+    <div class="a"><img src="img/partition-light.jpg" alt=""></div>
+    <div class="b"><img src="img/slats-tv.jpg" alt=""></div>
+    <div><img src="img/partition-living.jpg" alt=""></div>
+    <div><img src="img/radiator-screen.jpg" alt=""></div>
+    <div><img src="img/furniture-living.jpg" alt=""></div>
+    <div><img src="img/panels-rock.jpg" alt=""></div>
+    <div style="grid-column:span 2"><img src="img/windowsill.jpg" alt=""></div>
+  </div>
+</div></section>
+
+<section id="team" style="padding-top:0"><div class="wrap">
+  <div class="center"><h2>Люди, которые ведут ваш проект</h2></div>
+  <div class="team">
+    <div class="m"><div class="ph"><img src="img/team-olesya.jpg" alt=""></div><h3>Олеся</h3><p>Дизайнер-проектировщик · 3D-визуализация и подбор материалов</p></div>
+    <div class="m"><div class="ph"><img src="img/team-valeriya.jpg" alt=""></div><h3>Валерия</h3><p>Менеджер проекта · единое контактное лицо и график работ</p></div>
+    <div class="m"><div class="ph"><img src="img/team-mila.jpg" alt=""></div><h3>Мила</h3><p>Отдел продаж · консультации и коммерческие предложения</p></div>
+  </div>
+</div></section>
+
+<div class="wrap" id="cta"><div class="cta">
+  <h2>Приезжайте потрогать дерево</h2>
+  <p>Шоу-рум в Москве: ул. Бутырская, д. 5. Более 2000 образцов, консультация менеджера, Пн–Вс 11:00–20:00 по записи.</p>
+  <div class="btns" style="justify-content:center"><a class="pill g" href="tel:+74993466629">Записаться</a><a class="pill o" href="#">Обратный звонок</a></div>
+</div></div>
+
+<footer><div class="wrap foot">
+  <div><b>Brus Decor</b>Производство декора для дома · © 2016–2025</div>
+  <div><b>Адрес</b>Москва, Бутырская, 5</div>
+  <div><b>Телефоны</b>+7 (499) 346 66 29<br>+7 908 3000 800</div>
+  <div><b>E-mail</b>office@brusdecor.com</div>
+</div></footer>
+</body>
+</html>

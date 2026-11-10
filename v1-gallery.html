@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brus Decor — Макет 1 «Галерея»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1ea;--paper:#fffdf9;--ink:#2a2420;--muted:#7a6e64;--oak:#a87b4f;--line:#e4d9cc}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,sans-serif}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.serif{font-family:"Cormorant Garamond",serif;font-weight:500}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+header{position:sticky;top:0;z-index:10;background:rgba(246,241,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:"Cormorant Garamond",serif;font-size:30px;letter-spacing:.02em}
+.logo span{font-family:Manrope;font-size:10px;letter-spacing:.4em;display:block;margin-top:-8px;color:var(--muted)}
+.menu{display:flex;gap:34px;font-size:14px;color:var(--muted)}
+.menu a:hover{color:var(--ink)}
+.phone{font-weight:600;font-size:15px}
+.btn{display:inline-block;padding:16px 34px;border:1px solid var(--ink);font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:.25s}
+.btn:hover,.btn.fill{background:var(--ink);color:var(--paper)}
+.btn.fill:hover{background:var(--oak);border-color:var(--oak)}
+.hero{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center;padding:72px 0 96px}
+.eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--oak);margin-bottom:24px}
+h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(46px,6vw,84px);line-height:1.02;margin-bottom:28px}
+h1 em{color:var(--oak)}
+.lead{color:var(--muted);font-size:18px;max-width:460px;margin-bottom:40px}
+.hero-img{position:relative;height:640px}
+.hero-img .small{position:absolute;left:-60px;bottom:-40px;width:230px;height:300px;border:10px solid var(--bg)}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+section{padding:110px 0}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:56px;gap:40px}
+h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(38px,4.4vw,60px);line-height:1.05}
+.head p{max-width:420px;color:var(--muted)}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:260px;gap:18px}
+.cat{position:relative;overflow:hidden;background:#ddd}
+.cat img{transition:transform .8s}
+.cat:hover img{transform:scale(1.05)}
+.cat .lbl{position:absolute;left:0;right:0;bottom:0;padding:24px;color:#fff;background:linear-gradient(transparent,rgba(20,14,10,.65))}
+.cat .lbl b{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:30px;display:block}
+.cat .lbl small{font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.85}
+.c1{grid-column:span 3;grid-row:span 2}.c2{grid-column:span 3}.c3{grid-column:span 3}.c4{grid-column:span 2}.c5{grid-column:span 2}.c6{grid-column:span 2}
+.why{background:var(--paper)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.fact{padding:40px 28px 0 0;border-right:1px solid var(--line);margin-right:28px}
+.fact:last-child{border:0}
+.fact .n{font-family:"Cormorant Garamond",serif;font-size:64px;line-height:1;color:var(--oak)}
+.fact h3{font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:16px 0 10px}
+.fact p{font-size:14px;color:var(--muted)}
+.quote{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.quote blockquote{font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1.3;font-style:italic}
+.quote .img{height:520px}
+.gal{columns:3;column-gap:18px}
+.gal div{break-inside:avoid;margin-bottom:18px}
+.gal img{height:auto}
+.prod{display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:center}
+.prod .img{height:480px}
+.list li{list-style:none;padding:18px 0;border-bottom:1px solid var(--line);display:flex;gap:20px}
+.list li b{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--oak);min-width:36px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.member .ph{height:420px;margin-bottom:20px}
+.member h4{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:500}
+.member p{color:var(--muted);font-size:14px}
+.cta{background:var(--ink);color:var(--paper);text-align:center;padding:120px 0}
+.cta h2{margin-bottom:22px}
+.cta p{color:#c9bcae;margin-bottom:40px}
+.cta .btn{border-color:var(--paper)}
+.cta .btn.fill{background:var(--paper);color:var(--ink)}
+footer{padding:56px 0;font-size:14px;color:var(--muted)}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.foot b{color:var(--ink);display:block;margin-bottom:12px;font-weight:600}
+@media(max-width:900px){.menu{display:none}.hero,.quote,.prod{grid-template-columns:1fr}.hero-img{height:420px}.hero-img .small{display:none}.cats{grid-template-columns:1fr 1fr;grid-auto-rows:200px}.cats>*{grid-column:span 1!important;grid-row:span 1!important}.facts,.team,.foot{grid-template-columns:1fr 1fr}.gal{columns:2}.head{flex-direction:column;align-items:start}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#">Brus<span>DECOR</span></a>
+  <nav class="menu"><a href="#cat">Каталог</a><a href="#works">Работы</a><a href="#prod">Производство</a><a href="#team">Команда</a><a href="#contacts">Контакты</a></nav>
+  <a class="phone" href="tel:+74993466629">+7 (499) 346 66 29</a>
+</div></header>
+
+<div class="wrap hero">
+  <div>
+    <div class="eyebrow">Фабрика декора · с 2016 года</div>
+    <h1>Дерево, которое <em>собирает</em> интерьер</h1>
+    <p class="lead">Рейки, 3D-панели, перегородки и мебель по вашим размерам. Замер, доставка и монтаж в Москве и области — изготовление до 30 рабочих дней.</p>
+    <div class="btns"><a class="btn fill" href="#contacts">Рассчитать стоимость</a><a class="btn" href="#contacts">Вызвать замерщика</a></div>
+  </div>
+  <div class="hero-img"><img src="img/hero-living.jpg" alt="Гостиная с декоративными рейками"><div class="small"><img src="img/partition-light.jpg" alt="Перегородка с подсветкой"></div></div>
+</div>
+
+<section id="cat"><div class="wrap">
+  <div class="head"><h2>Наши изделия</h2><p>Более 5000 проектов по всей России — от перегородок до стеновых панелей. Каждое изделие изготавливаем по индивидуальным размерам.</p></div>
+  <div class="cats">
+    <a class="cat c1" href="#"><img src="img/partition-slats.jpg" alt=""><div class="lbl"><small>Каталог</small><b>Реечные перегородки</b></div></a>
+    <a class="cat c2" href="#"><img src="img/slats-bedroom.jpg" alt=""><div class="lbl"><small>Каталог</small><b>Декоративные рейки</b></div></a>
+    <a class="cat c3" href="#"><img src="img/panels-wood3d.jpg" alt=""><div class="lbl"><small>Каталог</small><b>Стеновые панели</b></div></a>
+    <a class="cat c4" href="#"><img src="img/furniture-wardrobe.jpg" alt=""><div class="lbl"><small>Каталог</small><b>Мебель</b></div></a>
+    <a class="cat c5" href="#"><img src="img/moss-panel.jpg" alt=""><div class="lbl"><small>Каталог</small><b>Панно из мха</b></div></a>
+    <a class="cat c6" href="#"><img src="img/radiator-screen.jpg" alt=""><div class="lbl"><small>Каталог</small><b>Экраны и подоконники</b></div></a>
+  </div>
+</div></section>
+
+<section class="why"><div class="wrap">
+  <div class="head"><h2>Почему выбирают нас</h2><p>Работаем без брака: материалы сорта АА, Egger, Kronospan, Laminam и три этапа проверки каждого изделия.</p></div>
+  <div class="facts">
+    <div class="fact"><div class="n">5000+</div><h3>Проектов</h3><p>Частные и коммерческие интерьеры по всей России.</p></div>
+    <div class="fact"><div class="n">12</div><h3>Месяцев гарантии</h3><p>Ремонт или замена за наш счёт при производственном дефекте.</p></div>
+    <div class="fact"><div class="n">50+</div><h3>Городов</h3><p>Доставка в регионы от 2 дней, монтаж своими бригадами.</p></div>
+    <div class="fact"><div class="n">−15%</div><h3>К смете конкурента</h3><p>Пришлите КП — снизим смету на 5–15% без потери качества.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap quote">
+  <div class="img"><img src="img/slats-kitchen.jpg" alt="Рейки на кухне"></div>
+  <div>
+    <div class="eyebrow">Шоу-рум в Москве</div>
+    <blockquote>«Более 2000 образцов материалов и готовых решений — потрогать, сравнить и выбрать вместе с менеджером»</blockquote>
+    <p style="margin:28px 0 36px;color:var(--muted)">ул. Бутырская, д. 5 · Пн–Вс 11:00–20:00, по записи</p>
+    <a class="btn" href="#contacts">Записаться в шоу-рум</a>
+  </div>
+</div></section>
+
+<section id="works" style="padding-top:0"><div class="wrap">
+  <div class="head"><h2>Галерея работ</h2><p>Современные и классические решения, экологичные материалы и уникальный дизайн — подберите своё сочетание.</p></div>
+  <div class="gal">
+    <div><img src="img/slats-tv.jpg" alt=""></div>
+    <div><img src="img/panels-rock.jpg" alt=""></div>
+    <div><img src="img/partition-living.jpg" alt=""></div>
+    <div><img src="img/partition-tv-white.jpg" alt=""></div>
+    <div><img src="img/furniture-living.jpg" alt=""></div>
+    <div><img src="img/windowsill.jpg" alt=""></div>
+  </div>
+  <div style="text-align:center;margin-top:40px"><a class="btn" href="#">Посмотреть больше работ</a></div>
+</div></section>
+
+<section id="prod" class="why"><div class="wrap prod">
+  <div class="img"><img src="img/factory-1.jpg" alt="Производство"></div>
+  <div>
+    <div class="eyebrow">Производство полного цикла</div>
+    <h2 style="margin-bottom:28px">11 000 м² собственного цеха</h2>
+    <ul class="list">
+      <li><b>01</b><span>3D-проектирование и раскрой на станках с точностью до 0,1 мм</span></li>
+      <li><b>02</b><span>5 производственных линий для разных типов изделий</span></li>
+      <li><b>03</b><span>ЛДСП E1 (Германия), массив дуба, ясеня и бука с сертификатами FSC</span></li>
+      <li><b>04</b><span>4 этапа контроля — от материалов до финального осмотра перед отгрузкой</span></li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="team"><div class="wrap">
+  <div class="head"><h2>Команда</h2><p>Персональная поддержка на всех этапах — без «переводов на другого менеджера».</p></div>
+  <div class="team">
+    <div class="member"><div class="ph"><img src="img/team-olesya.jpg" alt=""></div><h4>Олеся</h4><p>Дизайнер-проектировщик, стаж 10+ лет · более 1000 реализованных работ</p></div>
+    <div class="member"><div class="ph"><img src="img/team-valeriya.jpg" alt=""></div><h4>Валерия</h4><p>Менеджер проекта, стаж 8+ лет · 700+ заказов «под ключ»</p></div>
+    <div class="member"><div class="ph"><img src="img/team-mila.jpg" alt=""></div><h4>Мила</h4><p>Ведущий специалист отдела продаж · 300+ комплексных объектов по РФ</p></div>
+  </div>
+</div></section>
+
+<div class="cta" id="contacts"><div class="wrap">
+  <h2>Хотите декор с гарантией качества?</h2>
+  <p>Предоставим лучшие условия без снижения качества. Замер в Москве и по всей России.</p>
+  <div class="btns" style="justify-content:center"><a class="btn fill" href="tel:+74993466629">+7 (499) 346 66 29</a><a class="btn" href="#">Обратный звонок</a></div>
+</div></div>
+
+<footer><div class="wrap foot">
+  <div><b>Brus Decor</b>Производство декора для дома с 2016 года<br>© brusdecor.shop</div>
+  <div><b>Шоу-рум</b>г. Москва, ул. Бутырская, д. 5<br>Пн–Вс 11:00–20:00</div>
+  <div><b>Телефоны</b>Продажи: +7 (499) 346 66 29<br>Качество: +7 908 3000 800</div>
+  <div><b>Почта</b>office@brusdecor.com</div>
+</div></footer>
+</body>
+</html>
